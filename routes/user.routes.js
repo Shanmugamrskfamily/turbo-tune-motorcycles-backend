@@ -69,12 +69,11 @@ async function mailActivationLink(userActivationInfo, activationtoken) {
     },
   });
   // send mail with defined transporter object
-  const url = `${process.env.CLIENT_URL}/activate/${activationtoken}`;
+  const url = `${process.env.CLIENT_URL}/activate?id=${activationtoken}`;
   let info = await transporter.sendMail({
     from: '"Turbo Tune Motorcycles App🏍️🧑🏻‍🔧" <shanmugamrskfamily@gmail.com>', // sender address
     to: `${userActivationInfo.email}`, // list of receivers
     subject: "Activation Link for Turbo Tune Motorcycles App", // Subject line
-    text: `sent by text,Hi ${userActivationInfo.name}, as you have requested to register, this is the link please click and activate your account. ${url}`, // plain text body
     html: `<div > <p>Hi <b>${userActivationInfo.name} </b> as you have requested to register, this is the link please click and activate your account. <button style="background-color: #007bff; color: #ffffff; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;"><a href="${url}" target="_blank" style="color: #ffffff; text-decoration: none;">Activate</a></button></p> <b>click this link to activate</b> <a href=${url} target="_blank">Activate Account</a></div>`, // html body
   });
   console.log("Message sent: %s", info.messageId);
@@ -221,12 +220,11 @@ async function mailResetLink(userResetInfo) {
     },
   });
   // send mail with defined transporter object
-  const url = `${process.env.CLIENT_URL}/change-password/${userResetInfo.resetToken}`;
+  const url = `${process.env.CLIENT_URL}/change-password?id=${userResetInfo.resetToken}`;
   let info = await transporter.sendMail({
     from: '"Turbo Tune Motorcycles App🏍️🧑🏻‍🔧" <shanmugamrskfamily@gmail.com>', // sender address
     to: `${userResetInfo.email}`, // list of receivers
     subject: "Password Reset for Turbo Tune Motorcycles App", // Subject line
-    text: `Hi ${userResetInfo.name}, as you have requested to reset Password, this is the link please click and reset. ${url}`, // plain text body
     html: `<div > <p>Hi ${userResetInfo.name} as you have requested to reset Password, this is the link please click and reset.  ${url} </p> <b>forgot? click this link to reset</b> <button style="background-color: #007bff; color: #ffffff; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;"><a href="${url}" target="_blank" style="color: #ffffff; text-decoration: none;">Reset Password</a></button></div>`, // html body
   });
   console.log("Message sent: %s", info.messageId);
