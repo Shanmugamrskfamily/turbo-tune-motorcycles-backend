@@ -226,7 +226,7 @@ async function mailResetLink(userResetInfo) {
     from: '"Turbo Tune Motorcycles App🏍️🧑🏻‍🔧" <shanmugamrskfamily@gmail.com>', // sender address
     to: `${userResetInfo.email}`, // list of receivers
     subject: "Password Reset for Turbo Tune Motorcycles App", // Subject line
-    html: `<div > <p>Hi ${userResetInfo.name} as you have requested to reset Password, this is the link please click and reset.  ${url} </p> <b>forgot? click this link to reset</b> <button style="background-color: #007bff; color: #ffffff; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;"><a href="${url}" target="_blank" style="color: #ffffff; text-decoration: none;">Reset Password</a></button></div>`, // html body
+    html: `<p>Hi ${userResetInfo.name} as you have requested to reset Password, this is the link please click and reset</p><p><b>forgot? click this Button to reset</b> <button style="background-color: #007bff; color: #ffffff; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;"><a href="${url}" target="_blank" style="color: #ffffff; text-decoration: none;">Reset Password</a></button></p>`,
   });
   console.log("Message sent: %s", info.messageId);
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
