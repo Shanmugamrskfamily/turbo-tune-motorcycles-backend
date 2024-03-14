@@ -149,6 +149,7 @@ router.post("/activate", async function (request, response) {
   const tokenedUserFromDB = await getUserFromActivationToken(
     activationTokenFromFront
   );
+  console.log('Token From Client',activationTokenFromFront);
   // console.log("activationUserfromDB", tokenedUserFromDB);
   const tokenedUser = await getUserFromObjectID(tokenedUserFromDB.userId);
   if (tokenedUser) {
